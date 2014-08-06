@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HoosClass</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="196x196" href="images/touch/chrome-touch-icon-196x196.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <!-- build:css styles/components/main.min.css -->
+
+
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- endbuild -->
+</head>
+
+<body ng-app="plunker">
+
+    <img src="" />{{3+3}}
+
+
+    <main>
+        <div ng-controller="AccordionDemoCtrl">
+
+            <!--login modal-->
+            <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>!-->
+                            <h1 class="text-center">HoosClass</h1>
+                            <h5 class="text-center">Choose a class. Enter your email/phone number. HoosClass will alert you when the class opens up!</h5>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form col-md-12 center-block">
+                                <div class="form-group">
+
+                                    <input type="text" ng-model="acronym" ng-change="setTimeout(getClasses(),100)" placeholder="Course Acronym (eg. CS, LING, HIST)" class="form-control input-lg">
+
+
+                                </div>
+
+                                <div class="form-group">
+                                    <!--             <pre>Model: {{asyncSelected | json}}</pre>      !-->
+                                    <input type="text" ng-model="number" ng-change="setTimeout(getClasses(),100)" placeholder="Course Number (eg. 2150, 1110, 9999)" class="form-control input-lg">
+
+
+                                </div>
+
+                                <div class="form-group">
+                                    <!--             <pre>Model: {{asyncSelected | json}}</pre>      !-->
+                                    <input type="text" ng-model="instructor" ng-change="setTimeout(getClasses(),100)" placeholder="Instructor" class="form-control input-lg">
+
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <input type="text" placeholder="Email Address" class="form-control input-lg">
+
+
+                                </div>
+                                <div class="form-group">
+
+                                    <input type="text" placeholder="Phone Number (HoosClass will text you)" class="form-control input-lg">
+
+
+                                </div>
+
+                                <div class="form-group">
+                                    <table class="table table-striped table-hover" ng-show="courses.length!=0">
+                                        <thead>
+                                            <tr>
+                                                <th>Select</th>
+                                                <th>Class Number</th>
+                                                <th>Course Acronym</th>
+                                                <th>Course Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!--<tr>
+                      <td>32143</td>
+                      <td>CS</td>
+                      <td>2150</td>
+                      <td>Program and Data representation</td>
+                    </tr> -->
+                                            <tr ng-repeat="course in courses">
+                                                <td>
+                                                    <input type="checkbox" ng-model="course.selected">
+                                                </td>
+                                                <td>{{course.classNum}}</td>
+                                                <td>{{course.acronym}}</td>
+                                                <td>{{course.courseName}}</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-lg btn-block" ng-click="sendEmail()">Alert Me!</button>
+                                    <!--<span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>!-->
+                                </div>
+
+
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-md-12">
+
+                                <span>Go Hoos!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- build:js scripts/main.min.js -->
+    <script src="scripts/main.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="../../scripts/app.js"></script>
+    <script src="../../scripts/SendGrid.js"></script>
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script>
+    <script>
+    var phantom = require('phantom');
+
+    phantom.create(function(ph) {
+        return ph.createPage(function(page) {
+            return page.open("http://www.google.com", function(status) {
+                console.log("opened google? ", status);
+                return page.evaluate((function() {
+                    return document.title;
+                }), function(result) {
+                    console.log('Page title is ' + result);
+                    return ph.exit();
+                });
+            });
+        });
+    });
+    </script>
+    <!-- Built with love using Web Starter Kit -->
+</body>
+
+</html>
