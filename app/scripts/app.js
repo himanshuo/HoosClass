@@ -115,18 +115,17 @@ and postdata='iMnemonic=cs&iNumber=&iInstructor=&iBuilding=&iRoom=&iDays=&iTime=
                 
                 if( Object.prototype.toString.call( res.data.query.results.postresult.tr ) === '[object Array]' ) {
                    angular.forEach(res.data.query.results.postresult.tr, function(item) {
-                    //console.log(item);
-                    //console.log();
+                   
                     console.log(item.class);
                     getCourseByItem(item);
-                    //course.courseName = getClassNameByClassNum(course.classNum);
+                  
 
                 });
                 }
                 else
                 {
                   item = res.data.query.results.postresult.tr;
-                  getCourseByItem(item);
+                  getCourseFromBigPage(item);
                 }
 
                
@@ -140,7 +139,7 @@ and postdata='iMnemonic=cs&iNumber=&iInstructor=&iBuilding=&iRoom=&iDays=&iTime=
     };
 
 
-    function getCourseByItem(item) {
+    function getCourseFromBigPage(item) {
 
 
         try {
@@ -222,12 +221,6 @@ and postdata='iMnemonic=cs&iNumber=&iInstructor=&iBuilding=&iRoom=&iDays=&iTime=
 
     }
 
-    function getClassNameByClassNum(classNum) {
-
-
-
-
-    }
 
 
     $scope.sendEmail = function() {
@@ -246,87 +239,9 @@ and postdata='iMnemonic=cs&iNumber=&iInstructor=&iBuilding=&iRoom=&iDays=&iTime=
     };
 }
 
-/*
-    https://query.yahooapis.com/v1/public/yql?q=select * from htmlpost where url='http://rabi.phys.virginia.edu/mySIS/CS2/page.php?Semester=1148&Type=Search' and postdata='iMnemonic=cs&iNumber=&iInstructor=&iBuilding=&iRoom=&iDays=&iTime=&iUnits=&iTitle=&iTopic=&iDescription=&Submit=Search+for+Classes' and xpath='//tr[contains(@class,"Section")]'&format=json&diagnostics=true&env=store://datatables.org/alltableswithkeys&callback=
-    */
 
 
 
-/*
-  $scope.getClassBySubject = function(val) {
-
-
-    return $http.get("https://query.yahooapis.com/v1/public/yql", {
-      params: {
-        q: "select p from html where url='http://rabi.phys.virginia.edu/mySIS/CS2/page.php?Semester=1148&Type=Group&Group=" + val + "' and xpath='//td[contains(@class,\"CourseNum\")]'",
-        format: "json",
-        diagnostics: true
-      }
-    }).then(function(res) {
-      //alert(res.data.query.results.td[5].p);
-      var classes = [];
-      angular.forEach(res.data.query.results.td, function(item) {
-        //alert(item.p);
-        classes.push(item.p);
-        //alert(classes);
-      });
-      //alert(addresses);
-      return classes;
-    });
-
-  };
-
-
-
-  $scope.getClassByCourseAcronym = function(val) {
-
-    return $http.get("https://query.yahooapis.com/v1/public/yql", {
-      params: {
-        q: "select td.p from htmlpost where url='http://rabi.phys.virginia.edu/mySIS/CS2/page.php?Semester=1148&Type=Search' and postdata='iMnemonic=" + val + "' and xpath='//td[contains(@class,\"CourseNum\")]'",
-        format: "json",
-        diagnostics: false,
-        env: "store://datatables.org/alltableswithkeys"
-      }
-    }).then(function(res) {
-
-      //alert(res.data.query.results.postresult[1].td.p);
-      var classes = [];
-      angular.forEach(res.data.query.results.postresult, function(item) {
-        //alert(item.p);
-        classes.push(item.td.p);
-        //alert(classes);
-      });
-      //alert(addresses);
-      return classes;
-    });
-
-  };
-
-  $scope.getClassByClassNumber = function(val) {
-
-    return $http.get("https://query.yahooapis.com/v1/public/yql", {
-      params: {
-        q: "select td.p from htmlpost where url='http://rabi.phys.virginia.edu/mySIS/CS2/page.php?Semester=1148&Type=Search' and postdata='iNumber=" + val + "' and xpath='//td[contains(@class,\"CourseNum\")]'",
-        format: "json",
-        diagnostics: false,
-        env: "store://datatables.org/alltableswithkeys"
-      }
-    }).then(function(res) {
-
-      //alert(res.data.query.results.postresult[1].td.p);
-      var classes = [];
-      angular.forEach(res.data.query.results.postresult, function(item) {
-        //alert(item.p);
-        classes.push(item.td.p);
-        //alert(classes);
-      });
-      alert(addresses);
-      return classes;
-    });
-
-  };
-
-*/
 
 
 
