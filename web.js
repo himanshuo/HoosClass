@@ -13,9 +13,7 @@ app.get('/', function(req, res) {
 
     //res.sendfile('./app/index.html');
     //res.sendfile('./app/scripts/app.js');
-
-});
-
+//ONLY FOR TESTING! MOVE TO SEPERATE IO WHEN DONE
 pg.connect(conString, function(err, client) {
 
     if (err) {
@@ -24,7 +22,7 @@ pg.connect(conString, function(err, client) {
 
     } else {
         //console.log(client);
-        var q = "select * from alerts where done=false";
+        var q = "select * from alerts";
         var query = client.query(q);
         query.on('row', function(row) {
 
@@ -32,6 +30,11 @@ pg.connect(conString, function(err, client) {
         });
     }
 });
+
+
+});
+
+
 
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {
