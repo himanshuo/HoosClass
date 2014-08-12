@@ -4,16 +4,25 @@ var path = require('path');
 var app = express();
 var pg = require('pg');
 var conString = process.env.DATABASE_URL;
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 app.use(logfmt.requestLogger());
 
-//app.use(express.static(path.normalize(__dirname) + '/app'));
+app.use(express.static(path.normalize(__dirname) + '/app'));
 
 app.get('/', function(req, res) {
 
     //res.sendfile('./app/index.html');
     //res.sendfile('./app/scripts/app.js');
+
+
+
+
+});
+
 //ONLY FOR TESTING! MOVE TO SEPERATE IO WHEN DONE
+function dostuff(){
 pg.connect(conString, function(err, client) {
 
     if (err) {
@@ -31,12 +40,16 @@ pg.connect(conString, function(err, client) {
     }
 });
 
+}
 
+io.on('connection', function(socket){
+  console.log('a user connected');
+  dostuff();
 });
-
 
 
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {
     console.log("Listening on " + port);
+    //dostuff();
 });
