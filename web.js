@@ -7,7 +7,7 @@ var conString = process.env.DATABASE_URL;
 
 app.use(logfmt.requestLogger());
 
-app.use(express.static(path.normalize(__dirname) + '/app'));
+//app.use(express.static(path.normalize(__dirname) + '/app'));
 
 app.get('/', function(req, res) {
 
