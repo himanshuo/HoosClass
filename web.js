@@ -4,8 +4,8 @@ var path = require('path');
 var app = express();
 var pg = require('pg');
 var conString = process.env.DATABASE_URL;
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+//var http = require('http').Server(app);
+//var io = require('socket.io')(http);
 
 app.use(logfmt.requestLogger());
 
