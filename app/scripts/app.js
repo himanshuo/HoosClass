@@ -117,7 +117,7 @@ and postdata='iMnemonic=cs&iNumber=&iInstructor=&iBuilding=&iRoom=&iDays=&iTime=
                    angular.forEach(res.data.query.results.postresult.tr, function(item) {
                    
                     console.log(item.class);
-                    getCourseByItem(item);
+                    getCourseFromBigPage(item);
                   
 
                 });
@@ -126,6 +126,7 @@ and postdata='iMnemonic=cs&iNumber=&iInstructor=&iBuilding=&iRoom=&iDays=&iTime=
                 {
                   item = res.data.query.results.postresult.tr;
                   getCourseFromBigPage(item);
+
                 }
 
                
@@ -223,7 +224,7 @@ and postdata='iMnemonic=cs&iNumber=&iInstructor=&iBuilding=&iRoom=&iDays=&iTime=
 
 
 
-    $scope.sendEmail = function() {
+    $scope.clicked = function() {
         var selectedCourses = [];
         angular.forEach($scope.courses, function(course) {
 
