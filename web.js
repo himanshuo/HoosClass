@@ -42,10 +42,10 @@ pg.connect(conString, function(err, client) {
 
 }
 
-io.on('connection', function(socket){
+//io.on('connection', function(socket){
   console.log('a user connected');
   dostuff();
-});
+//});
 
 
 var port = Number(process.env.PORT || 5000);
