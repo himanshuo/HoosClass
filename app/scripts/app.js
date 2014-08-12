@@ -233,8 +233,11 @@ and postdata='iMnemonic=cs&iNumber=&iInstructor=&iBuilding=&iRoom=&iDays=&iTime=
             }
 
         });
-        console.log(selectedCourses.length);
 
+
+        console.log(selectedCourses.length);
+//send to backend to put into db.
+//open up a modal to show that selected courses have been logged and alerts will be sent.  
 
 
     };

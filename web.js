@@ -43,8 +43,8 @@ pg.connect(conString, function(err, client) {
 }
 
 //io.on('connection', function(socket){
-  console.log('a user connected');
-  dostuff();
+  //console.log('a user connected');
+  //dostuff();
 //});
 
 
