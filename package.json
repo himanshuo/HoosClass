@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "express": "^4.7.2",
+    "http": "0.0.0",
     "logfmt": "^1.1.2",
     "path": "^0.4.9",
     "pg": "^3.4.1",
