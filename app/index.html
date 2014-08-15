@@ -34,15 +34,15 @@
     <!-- endbuild -->
 </head>
 
-<body ng-app="plunker">
-
-    <img src="" />{{3+3}}
-
+<body ng-app="hoosclass">
+    
+    {{3+3}}
 
     <main>
-        <div ng-controller="AccordionDemoCtrl">
+        
 
-            <!--login modal-->
+        <div ng-controller="AccordionDemoCtrl">
+     <!--login modal-->
             <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -137,6 +137,8 @@
                 </div>
             </div>
 
+
+           
         </div>
 
     </main>
@@ -144,19 +146,14 @@
 
     <!-- build:js scripts/main.min.js -->
     <script src="scripts/main.js"></script>
-    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.js"></script> -->
     <!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script> -->
     <script src="../../scripts/angular.min.js"></script>
     <script src="../../scripts/ui-bootstrap-tpls-0.11.0.min.js"></script>
     <script src="../../scripts/app.js"></script>
-    <script src="../../scripts/SendGrid.js"></script>
-    <script src="../../scripts/socket.io.js"></script>
+    <script src="../../scripts/socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
 
-
-<script>
-var socket = io();
-</script>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

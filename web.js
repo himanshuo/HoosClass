@@ -4,15 +4,14 @@ var path = require('path');
 var app = express();
 var pg = require('pg');
 var conString = process.env.DATABASE_URL;
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+
 
 app.use(logfmt.requestLogger());
 
 app.use(express.static(path.normalize(__dirname) + '/app'));
 
-app.get('/', function(req, res) {
-
+app.get('/hi', function(req, res) {
+console.log("the / is called ");
     //res.sendfile('./app/index.html');
     //res.sendfile('./app/scripts/app.js');
 
@@ -41,15 +40,41 @@ pg.connect(conString, function(err, client) {
 });
 
 }
+//--------------------------------
+// Require HTTP module (to start server) and Socket.IO
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-  //dostuff();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+// Create a Socket.IO instance, passing it our server
+
+console.log("socket created.");
+// Add a connect listener
+io.on('connection', function(client){
+    
+    // Success!  Now listen to messages to be received
+    client.on('sendEmails',function(event){
+        console.log('Received message from client!',event);
+        console.log("name:"+ event.email);
+    });
+    client.on('disconnect',function(){
+        
+        console.log('Server has disconnected');
+    });
+
 });
+//---------------------------------
 
-
-var port = Number(process.env.PORT || 5000);
+/*var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {
     console.log("Listening on " + port);
     //dostuff();
+});*/
+
+var port = Number(process.env.PORT || 5000);
+http.listen(port, function() {
+    console.log("Listening on " + port);
+    //dostuff();
 });
+
+
+
