@@ -1,0 +1,25 @@
+2. Select classes for which you would like to be alerted for:{{searchedProperly}}
+<div class="form-group">
+    <table class="table table-striped table-hover" ng-show="courses.length!=0">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Class Number</th>
+                <th>Course Acronym</th>
+                <th>Course Name</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="course in courses">
+                <td>
+                    <input type="checkbox" ng-model="course.selected">
+                </td>
+                <td>{{course.classNum}}</td>
+                <td>{{course.acronym}}</td>
+                <td>{{course.courseName}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

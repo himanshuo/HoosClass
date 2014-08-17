@@ -30,7 +30,8 @@
 
 
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+   <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="../../styleguide/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- endbuild -->
 </head>
 
@@ -40,14 +41,16 @@
 
     <main>
         
+<alert-form > </alert-form> 
 
+
+<!--
         <div ng-controller="AccordionDemoCtrl">
-     <!--login modal-->
-            <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+            <div id="topcontainer" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>!-->
+                           
                             <h1 class="text-center">HoosClass</h1>
                             <h5 class="text-center">Choose a class. Enter your email/phone number. HoosClass will alert you when the class opens up!</h5>
                         </div>
@@ -61,14 +64,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <!--             <pre>Model: {{asyncSelected | json}}</pre>      !-->
+                                    
                                     <input type="text" ng-model="number" ng-change="setTimeout(getClasses(),100)" placeholder="Course Number (eg. 2150, 1110, 9999)" class="form-control input-lg">
 
 
                                 </div>
 
                                 <div class="form-group">
-                                    <!--             <pre>Model: {{asyncSelected | json}}</pre>      !-->
+                                   
                                     <input type="text" ng-model="instructor" ng-change="setTimeout(getClasses(),100)" placeholder="Instructor" class="form-control input-lg">
 
 
@@ -99,12 +102,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!--<tr>
-                      <td>32143</td>
-                      <td>CS</td>
-                      <td>2150</td>
-                      <td>Program and Data representation</td>
-                    </tr> -->
+                                            
                                             <tr ng-repeat="course in courses">
                                                 <td>
                                                     <input type="checkbox" ng-model="course.selected">
@@ -120,7 +118,7 @@
 
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-lg btn-block" ng-click="clicked()">Alert Me!</button>
-                                    <!--<span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>!-->
+                                    
                                 </div>
 
 
@@ -140,7 +138,7 @@
 
            
         </div>
-
+-->
     </main>
 
 
@@ -150,7 +148,11 @@
     <!--<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script> -->
     <script src="../../scripts/angular.min.js"></script>
     <script src="../../scripts/ui-bootstrap-tpls-0.11.0.min.js"></script>
-    <script src="../../scripts/app.js"></script>
+    <script src="../../scripts/app/app.js"></script>
+    <script src="../../scripts/app/services/helperfunctions.js"></script>
+    <script src="../../scripts/app/directives/alertform.js"></script>
+    <script src="../../scripts/app/directives/questions.js"></script>
+    <script src="../../scripts/app/directives/selectclass.js"></script>
     <script src="../../scripts/socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
 
