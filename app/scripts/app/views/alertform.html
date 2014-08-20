@@ -1,4 +1,4 @@
-<div id="topcontainer" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="topcontainer" class="modal show" tabindex="-1" role="dialog" aria-hidden="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -8,14 +8,77 @@
             </div>
             <div class="modal-body">
                 <form class="form col-md-12 center-block">
-					<questions></questions>
-					<select-class ng-show="searchedProperly"></select-class>
-					<send-email></send-email>
+                    <span>1. Search for a Class:</span>
+                    <div class="form-group">
+
+                        <input type="text" ng-model="acronym" placeholder="Course Acronym (eg. CS, LING, HIST)" class="form-control input-lg">
 
 
+                    </div>
 
-                </form>
+                    <div class="form-group">
+
+                        <input type="text" ng-model="number" placeholder="Course Number (eg. 2150, 1110, 9999)" class="form-control input-lg">
+
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="text" ng-model="instructor" placeholder="Instructor" class="form-control input-lg">
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="button" value="Search" class="btn btn-primary btn-sm btn-block" ng-click="search();" collapse="searchedProperly">
+
+                    </div>
+
+                    <span ng-show="courses.length!=0">2. Select classes for which you would like to be alerted for:</span>
+                    <div class="form-group">
+                        <table class="table table-hover" ng-show="courses.length!=0" style=":hover:">
+                            <thead>
+                                <tr>
+                                    <th>Select</th>
+                                    <th>Class Number</th>
+                                    <th>Course Acronym</th>
+                                    <th>Course Name</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-repeat="course in courses" tooltip-html-unsafe={{tooltipstyle(course)}} tooltip-html-unsafe-trigger="focus" tooltip-html-unsafe-placement="top">
+                                    <td>
+                                        <input type="checkbox" ng-model="course.selected">
+                                    </td>
+                                    <td>{{course.number}}</td>
+                                    <td>{{course.acronym}}</td>
+                                    <td>{{course.name}}</td>
+
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-group" ng-show="atleastOneSelected()">
+
+                        <input type="text" ng-model="email" placeholder="Email" class="form-control input-lg">
+
+
+                    </div>
+                    <div class="form-group" ng-show="atleastOneSelected()">
+
+                        <input type="button" value="Alert Me!" class="btn btn-primary btn-lg btn-block" ng-click="alertClicked()">
+
+                    </div>
             </div>
+
+
+            </form>
+
 
             <div class="modal-footer">
                 <div class="col-md-12">

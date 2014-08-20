@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="description" content="HoosClass is a alert service which helps UVA students determine when their classes open up">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HoosClass</title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="196x196" href="images/touch/chrome-touch-icon-196x196.png">
+    <link rel="icon" sizes="196x196" href="images/touch/uva.png">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -30,21 +30,31 @@
 
 
 
-   <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="../../styleguide/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+     <style>
+        body{
+            background-image: url("../../images/UVA_wallpaper.jpg");
+             background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+        }
+
+     </style> 
+    <!--<link href="../../styleguide/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">-->
     <!-- endbuild -->
 </head>
 
 <body ng-app="hoosclass">
-    
+
     {{3+3}}
 
     <main>
-        
-<alert-form > </alert-form> 
+
+        <alert-form></alert-form>
 
 
-<!--
+
+        <!--
         <div ng-controller="AccordionDemoCtrl">
             <div id="topcontainer" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
@@ -154,6 +164,7 @@
     <script src="../../scripts/app/directives/questions.js"></script>
     <script src="../../scripts/app/directives/selectclass.js"></script>
     <script src="../../scripts/socket.io-client/socket.io.js"></script>
+    <script src="../../scripts/ui-utils.min.js"></script>
     <!-- endbuild -->
 
 
@@ -170,9 +181,14 @@
         a.async = 1;
         a.src = g;
         m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
+    })(window, document, 'script', '/ / www.google - analytics.com / analytics.js ', '
+    ga ');
+    ga('
+    create ', '
+    UA - XXXXX - X ');
+    ga('
+    send ', '
+    pageview ');
     </script>
     <script>
     var phantom = require('phantom');
